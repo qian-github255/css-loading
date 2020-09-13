@@ -1,0 +1,220 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.page{
+    width: 100vw;
+    height: 100vh;
+    background: #b97255;
+    /* 弹性盒模型 */
+    display: flex; 
+    align-items: center;
+    justify-content: center; 
+}
+
+.page .text{
+     /* 垂直排列 */
+     flex-direction: column;
+     margin-right: 50px;
+}
+
+.monster {
+    position: relative;
+    width: 100px;
+    height: 105px;
+    background: chocolate;
+    margin: 10px;
+    border-radius: 15px;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .3);
+    animation: jumping 0.8s infinite alternate;
+}
+
+.monster .eye{
+    width: 45%;
+    height: 30%;
+    border-radius: 50%;
+    background:#fff;
+    margin: 10px;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+
+.monster .eye .eyeBall{
+    width: 35%;
+    height: 35%;
+    border-radius: 50%;
+    background: #000;
+    animation: eyeMove 0.8s infinite alternate;
+}
+
+.monster.blue{
+    background: royalblue;
+    animation-delay: 0.8s;
+}
+
+
+.monster .mouse{
+    width: 45%;
+    height: 15%;
+    border-radius: 10px;
+    background: #fff;
+}
+
+.monster::before,
+.monster::after{
+    content: '';
+    display: block;
+    width: 30%;
+    height: 10%;
+    background: #fff;
+    position: absolute;
+    top: -10px;
+    border-radius: 15px;
+}
+
+.monster::before{
+    transform: translateX(-7px) rotate(45deg);
+}
+.monster::after{
+    transform: translateX(7px) rotate(-45deg);
+}
+
+@keyframes jumping {
+    0% {
+        transform: translate(0,0); 
+        box-shadow: 0 10px 20px rgba(0, 0, 0, .3);
+    }
+
+    100% {
+        transform: translate(0,-50px);
+        box-shadow: 0 100px 20px rgba(0, 0, 0, .1)
+    }
+
+}
+
+@keyframes eyeMove{
+    0%,
+    10%{
+        transform: translate(-50%);
+    }
+
+    90%,
+    100%{
+        transform: translate(50%);
+    }
+}
+
+
+.pageLoading{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #b97255;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: all 1s;
+}
+
+.pageLoading .mon{
+    position: relative;
+    width: 100px;
+    height: 105px;
+    background: chocolate;
+    margin: 10px;
+    border-radius: 15px;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    flex-direction: column; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .3);
+    /* animation: jumping 0.8s infinite alternate; */
+}
+
+.mon .eye{
+    width: 45%;
+    height: 30%;
+    border-radius: 50%;
+    background:#fff;
+    margin: 10px;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+}
+
+.mon .eye .eyeBall{
+    width: 35%;
+    height: 35%;
+    border-radius: 50%;
+    background: #000;
+    animation: eyeMove 0.8s infinite alternate;
+}
+
+.mon .mouse{
+    width: 45%;
+    height: 15%;
+    border-radius: 10px;
+    background: #fff;
+}
+
+.mon::before,
+.mon::after{
+    content: '';
+    display: block;
+    width: 30%;
+    height: 10%;
+    background: #fff;
+    position: absolute;
+    top: -10px;
+    border-radius: 15px;
+}
+
+.mon::before{
+    transform: translateX(-7px) rotate(45deg);
+}
+.mon::after{
+    transform: translateX(7px) rotate(-45deg);
+}
+
+
+.pageLoading .line{
+    width: 15%;
+    height: 10px;
+    border-radius: 10px;
+    background: #fff;
+    overflow: hidden;
+}
+
+.pageLoading .bar {
+    background: #5e4941;
+    width: 10px;
+    height: 100%;
+}
+
+.pageLoading.compete{
+    transition: opacity 4s;
+    opacity: 0;
+}
+
+.compete .mon{
+    transition: .5s;
+    transform: scale(0) rotate(360deg);
+}
+.compete .line{
+    transition: all .5s;
+    transform: scaleY(0);
+}
+
+
+
+
+
